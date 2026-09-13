@@ -8,7 +8,7 @@ Create the environment for a given lab:
 
 ```bash
 conda env create -f PW<n>/Lab\ <X>/environment.yml
-conda activate cspc
+conda activate cspc ```
 
 PW1 - Lab A: Reproducible Foundations
 What I built:

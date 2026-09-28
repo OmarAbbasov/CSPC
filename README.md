@@ -27,3 +27,16 @@ NumPy vectorization dramatically increases computational performance compared to
 
 * **Data Observation:** The observed decay count matches the theoretical exponential decay law ($N_0 e^{-\lambda t}$) closely with $\lambda=0.3$.
 * **Snakemake Pipeline:** The Snakemake pipeline automates the generation of `figure.png` from `decay_observed.csv` and `plot.py`, ensuring the figure is only rebuilt when input data or scripts change.
+
+## PW2 - Lab A: Motion from Tracking Data
+
+**What I built:**
+Analyzed noisy free-fall position tracking data. Calculated velocity and acceleration using numerical differentiation (`np.gradient`), then integrated the noisy acceleration back to recover position using `scipy.integrate.cumulative_trapezoid`.
+
+**Results:**
+* Mean Acceleration: ~ -9.81 m/s² (close to theoretical -g)
+* Acceleration Noise: High standard deviation in acceleration compared to position
+* Max Recovered Position Error: < 1.0 m
+
+**Why Acceleration is Noisy:**
+Numerical differentiation compares adjacent noisy data points and divides by a small time step ($\Delta t$), which amplifies high-frequency measurement noise with every derivative step; whereas integration accumulates and sums values, causing random noise to cancel out.

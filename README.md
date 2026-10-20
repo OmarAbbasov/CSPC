@@ -54,3 +54,27 @@ Numerical differentiation compares adjacent noisy data points and divides by a s
 * **Reaction Rate Fit:** Fitted rate constant $k \approx 0.25$, accurately capturing the first-order exponential decay curve.
 * **Chemical Equilibrium ($H_2 + I_2 \rightleftharpoons 2HI$):** Both Newton (root-finding) and SLSQP (minimization) agreed on the reaction extent $x \approx 0.66$, corresponding to $HI \approx 1.33 \text{ mol}$ and $H_2 = I_2 \approx 0.34 \text{ mol}$.
 * **Titration Equivalence Point:** Maximum slope of $dpH/dV$ identified the equivalence point at $V \approx 50.00 \text{ mL}$.
+
+## PW3 - Data, Distributions, Testing, and Causation
+
+### Session 1: Characterize the Data
+* **Distributions:**
+  * `age`: Symmetric, nearly bell-shaped distribution.
+  * `thalach`: Approximately normal with a slight left skew.
+  * `chol` & `trestbps`: Right-skewed continuous variables due to extreme upper medical outliers.
+* **Normality Verdicts:**
+  * Shapiro-Wilk statistical tests confirm that `thalach` and `age` closely approximate normality ($p > 0.05$ or near-threshold), whereas `chol` and `trestbps` deviate significantly due to skewness ($p < 0.05$).
+
+### Session 2: Draw Conclusions
+* **Heart Disease Effect:** 
+  * Patients with heart disease reach a significantly lower mean max heart rate (`thalach`: ~139 bpm) compared to healthy individuals (~158 bpm).
+  * Welch's t-test confirms a statistically significant difference ($p < 10^{-4}$).
+* **Age vs. Max Heart Rate:** 
+  * Moderate negative correlation ($r \approx -0.39, p < 10^{-4}$). As age increases, maximum achievable heart rate decreases linearly.
+
+### Dataset 2: Correlation vs. Causation
+* **Naive Analysis:** 
+  * Initially, one chemical (e.g., Benzene) displays a strong naive correlation with tumor malignancy, appearing to be the driver.
+* **Controlled Analysis (Confounding Variable):** 
+  * After controlling for `pollution_index` (filtering patients with similar exposure), the correlation for the misleading chemical drops to near zero, while the true chemical's association persists.
+  * **Conclusion:** `pollution_index` acts as a confounding factor. Controlling for it reveals which chemical is the true causal factor versus the spurious variable.

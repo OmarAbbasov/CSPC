@@ -40,3 +40,17 @@ Analyzed noisy free-fall position tracking data. Calculated velocity and acceler
 
 **Why Acceleration is Noisy:**
 Numerical differentiation compares adjacent noisy data points and divides by a small time step ($\Delta t$), which amplifies high-frequency measurement noise with every derivative step; whereas integration accumulates and sums values, causing random noise to cancel out.
+
+## PW2 - Lab B: Optimization in Chemistry
+
+**1. Optimization Methods Comparison (Part 2):**
+* **Convex function $f(x)$:** All three methods (Gradient Descent, Newton, SLSQP) successfully converged to the global minimum at $x \approx 3.00$.
+* **Complex function $g(x)$:** 
+  * Starting at $x_0 = 0$: Newton's method converged to a local maximum/stationary point ($g''(x) < 0$), whereas GD and SLSQP successfully located local/global minima.
+  * Starting at $x_0 = 2$: All methods converged towards the global minimum near $x \approx 1.16$.
+  * *Takeaway:* Method choice and initial guesses $x_0$ strongly affect convergence on complex non-convex landscapes.
+
+**2. Chemistry Applications:**
+* **Reaction Rate Fit:** Fitted rate constant $k \approx 0.25$, accurately capturing the first-order exponential decay curve.
+* **Chemical Equilibrium ($H_2 + I_2 \rightleftharpoons 2HI$):** Both Newton (root-finding) and SLSQP (minimization) agreed on the reaction extent $x \approx 0.66$, corresponding to $HI \approx 1.33 \text{ mol}$ and $H_2 = I_2 \approx 0.34 \text{ mol}$.
+* **Titration Equivalence Point:** Maximum slope of $dpH/dV$ identified the equivalence point at $V \approx 50.00 \text{ mL}$.

@@ -78,3 +78,16 @@ Numerical differentiation compares adjacent noisy data points and divides by a s
 * **Controlled Analysis (Confounding Variable):** 
   * After controlling for `pollution_index` (filtering patients with similar exposure), the correlation for the misleading chemical drops to near zero, while the true chemical's association persists.
   * **Conclusion:** `pollution_index` acts as a confounding factor. Controlling for it reveals which chemical is the true causal factor versus the spurious variable.
+
+  # Practical Work 4 — Machine Learning: Supervised and Unsupervised
+
+## Overview & One-Command Reproduction
+
+This directory implements the end-to-end supervised and unsupervised machine-learning workflows from Practical Work 4:
+- **Session A (`fetch_concrete.py`, `sessionA.py`):** Regression, classification, model evaluation, threshold selection, feature importance, and physics-informed feature engineering on the UCI Concrete Compressive Strength dataset (Yeh, 1998; UCI ID 165).
+- **Session B (`sessionB.py`):** Unsupervised dimensionality reduction (PCA) and clustering (K-Means) on the UCI Wine dataset (Forina et al., 178 samples, 13 chemical measurements), compared against true grape cultivars.
+- **Automation (`Snakefile`):** Reproduces all datasets, tables, and figures with a single command from `PW4/`:
+
+```bash
+conda activate cspc
+snakemake --cores 1

@@ -1,0 +1,3 @@
+variant,p_features,test_r2
+log(age) only,8,0.8037388731645765
+log(age) + w/b,8,0.806370648613518

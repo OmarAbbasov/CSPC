@@ -88,9 +88,6 @@ This directory implements the end-to-end supervised and unsupervised machine-lea
 - **Session B (`sessionB.py`):** Unsupervised dimensionality reduction (PCA) and clustering (K-Means) on the UCI Wine dataset (Forina et al., 178 samples, 13 chemical measurements), compared against true grape cultivars.
 - **Automation (`Snakefile`):** Reproduces all datasets, tables, and figures with a single command from `PW4/`:
 
-```bash
-conda activate cspc
-snakemake --cores 1
 
 # Practical Work 5 — Signal Processing: Where Was the Earthquake, and How Strong?
 
